@@ -1,9 +1,12 @@
 console.log("Rock, paper, scissors");
 
-
-
-console.log(computerPlay());
-console.log(playerSelection());
+playRound(computerPlay(),playerSelection())
+// for (let i=1;i<=5;i++){
+//     console.log(computerPlay());
+//     console.log(playerSelection());
+// }
+// console.log(computerPlay());
+// console.log(playerSelection());
 
 
 // computer play
@@ -29,4 +32,26 @@ function playerSelection() {
     return choicep;
 }
 
-// compare
+// play round
+
+function playRound(computer,player){
+    if (computer===player){
+        console.log("It's a tie")
+    }else if( player==='rock' && computer==='scissors' ){
+        console.log("You won!!! Rock beats Scissors")
+    }else if( player==='rock' && computer==='paper' ){
+        console.log("You lost :( Paper beats Rock")
+
+    }else if( player==='scissors' && computer==='paper' ){
+        console.log("You won!!! scissors beats paper")
+    }else if( player==='scissors' && computer==='rock' ){
+        console.log("You lost :( rock beats scissors")
+
+    }else if( player==='paper' && computer==='rock' ){
+        console.log("You won!!! paper beats rock")
+    }else if( player==='paper' && computer==='scissors' ){
+        console.log("You lost :( scissors beats paper")
+    }
+
+}
+
