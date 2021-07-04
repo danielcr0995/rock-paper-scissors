@@ -39,20 +39,34 @@ function playerSelection() {
 function playRound(computer,player){
     if (computer===player){
         console.log("It's a tie")
+        let result=[0,0];
+        return result;
     }else if( player==='rock' && computer==='scissors' ){
         console.log("You won!!! Rock beats Scissors");
+        let result=[1,0];
+        return result;
     }else if( player==='rock' && computer==='paper' ){
         console.log("You lost :( Paper beats Rock");
+        let result=[0,1];
+        return result;
 
     }else if( player==='scissors' && computer==='paper' ){
         console.log("You won!!! scissors beats paper")
+        let result=[1,0];
+        return result;
     }else if( player==='scissors' && computer==='rock' ){
         console.log("You lost :( rock beats scissors");
+        let result=[0,1];
+        return result;
 
     }else if( player==='paper' && computer==='rock' ){
         console.log("You won!!! paper beats rock");
+        let result=[1,0];
+        return result;
     }else if( player==='paper' && computer==='scissors' ){
         console.log("You lost :( scissors beats paper");
+        let result=[0,1];
+        return result;
     }
 
 }
