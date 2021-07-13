@@ -1,6 +1,6 @@
 console.log("Rock, paper, scissors");
 
-game();
+//game();
 
 // playRound(computerPlay(),playerSelection())
 // for (let i=1;i<=5;i++){
