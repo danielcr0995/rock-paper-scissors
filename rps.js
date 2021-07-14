@@ -38,38 +38,41 @@ function play(e) {
     playRound(computerPlay(),choicep);
 }
 
+function show_result(text){
+    let rescontainer=document.querySelector('.gameresultp');
+    let pcontent=document.createElement('p');
+    pcontent.classList.add('gameresultp');
+    oldcontent=pcontent.textContent;
+    console.log(oldcontent);
+    pcontent.textContent=text;
+    rescontainer.replaceWith(pcontent)
+
+}
 // play round
 
 function playRound(computer,player){
     if (computer===player){
         console.log("It's a tie");
         txtres=("It's a tie");
-        let rescontainer=document.querySelector('.result');
-        let pcontent=document.createElement('p');
-        pcontent.classList.add('result');
-        pcontent.textContent=txtres;
-        rescontainer.appendChild(pcontent);
+        // let rescontainer=document.querySelector('.gameresult');
+        // let pcontent=document.createElement('p');
+        // pcontent.classList.add('result');
+        // pcontent.textContent=txtres;
+        // rescontainer.replaceWith(pcontent);
+        show_result(txtres);
         let result=[0,0];
         return result;
     }else if( player==='rock' && computer==='scissors' ){
         console.log("You won!!! Rock beats Scissors");
         txtres=("You won!!! Rock beats Scissors");
-        let rescontainer=document.querySelector('.result');
-        let pcontent=document.createElement('p');
-        pcontent.classList.add('result');
-        pcontent.textContent=txtres;
-        rescontainer.appendChild(pcontent);
+        show_result(txtres);
 
         let result=[1,0];
         return result;
     }else if( player==='rock' && computer==='paper' ){
         console.log("You lost :( Paper beats Rock");
         txtres=("You lost :( Paper beats Rock");
-        let rescontainer=document.querySelector('.result');
-        let pcontent=document.createElement('p');
-        pcontent.classList.add('result');
-        pcontent.textContent=txtres;
-        rescontainer.appendChild(pcontent);
+        show_result(txtres);
 
         let result=[0,1];
         return result;
@@ -77,22 +80,14 @@ function playRound(computer,player){
     }else if( player==='scissors' && computer==='paper' ){
         console.log("You won!!! scissors beats paper");
         txtres=("You won!!! scissors beats paper");
-        let rescontainer=document.querySelector('.result');
-        let pcontent=document.createElement('p');
-        pcontent.classList.add('result');
-        pcontent.textContent=txtres;
-        rescontainer.appendChild(pcontent);
+        show_result(txtres);
 
         let result=[1,0];
         return result;
     }else if( player==='scissors' && computer==='rock' ){
         console.log("You lost :( rock beats scissors");
         txtres=("You lost :( rock beats scissors");
-        let rescontainer=document.querySelector('.result');
-        let pcontent=document.createElement('p');
-        pcontent.classList.add('result');
-        pcontent.textContent=txtres;
-        rescontainer.appendChild(pcontent);
+        show_result(txtres);
 
         let result=[0,1];
         return result;
@@ -100,22 +95,14 @@ function playRound(computer,player){
     }else if( player==='paper' && computer==='rock' ){
         console.log("You won!!! paper beats rock");
         txtres=("You won!!! paper beats rock");
-        let rescontainer=document.querySelector('.result');
-        let pcontent=document.createElement('p');
-        pcontent.classList.add('result');
-        pcontent.textContent=txtres;
-        rescontainer.appendChild(pcontent)
+        show_result(txtres);
 
         let result=[1,0];
         return result;
     }else if( player==='paper' && computer==='scissors' ){
         console.log("You lost :( scissors beats paper");
         txtres=("You lost :( scissors beats paper");
-        let rescontainer=document.querySelector('.result');
-        let pcontent=document.createElement('p');
-        pcontent.classList.add('result');
-        pcontent.textContent=txtres;
-        rescontainer.appendChild(pcontent)
+        show_result(txtres);
 
         let result=[0,1];
         return result;
