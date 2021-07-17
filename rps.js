@@ -193,5 +193,5 @@ function show_score(score){
 
 
 let score=[0,0]
-let btn=document.querySelector('button');
-btn.addEventListener('click', play);
+let btn=document.querySelector('.button');
+window.addEventListener('click', play);
