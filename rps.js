@@ -13,16 +13,9 @@ console.log("Rock, paper, scissors");
 
 // computer play
 
-function computerPlay(){
-    let choice;
-    let choices=['rock','paper','scissors'];
-    
-    let n =Math.floor(Math.random() *3);
 
-    choice=choices[n];
-    return choice;
 
-}
+
 
 //my play
 function play(e) {
@@ -46,6 +39,7 @@ function play(e) {
     score=newscore;
     console.log(score);
     show_score(score);
+    game_finished(score);
 }
 
 function show_result(text){
@@ -59,7 +53,16 @@ function show_result(text){
 
 }
 // play round
+function computerPlay(){
+    let choice;
+    let choices=['rock','paper','scissors'];
+    
+    let n =Math.floor(Math.random() *3);
 
+    choice=choices[n];
+    return choice;
+
+}
 function playRound(computer,player){
     if (computer===player){
         console.log("It's a tie");
@@ -129,18 +132,43 @@ function game(){
 function restart(){
 
 }
+
+function gf_content(txt, element,parent){
+    element.textContent=txt;
+    element.style.fontSize='50px';
+    element.style.textAlign='center';
+    
+    parent.replaceWith(element);
+
+
+
+
+}
 function game_finished(score){
     //remove buttons
-    let del=document.getElementById('buttons');
-    del.parentNode.removeChild(del);
-    //game won
-    if( score[0]==5){
+    if(score[0]==5 || score[1]==5) {
+        let content=document.getElementById('content');
+        // del.parentNode.removeChild(del);
+        let newcontent=document.createElement('p');
+        newcontent.classList.add('finalmessage');
 
-    } 
-    //game lost
-    else if(score[1]==5){
+        //game won
+    
+        if( score[0]==5){
+            let message="CONGRATULATIONS!!!!\n\nYou won the game"
+            gf_content(message, newcontent,content);
+
+
+        } 
+        //game lost
+        else if(score[1]==5){
+            let message="You lost:(\n\nGood luck next time"
+            gf_content(message,newcontent,content);
+
+        }
 
     }
+    
     // restart game
 }
 
@@ -156,8 +184,8 @@ function show_score(score){
     let scorecontainer=document.querySelector('.totalscore');
     let newscorepcontent=document.createElement('p');
     newscorepcontent.classList.add('totalscore');
-    oldcontent=newscorepcontent.textContent;
-    console.log(oldcontent);
+    // oldcontent=newscorepcontent.textContent;
+    // console.log(oldcontent);
     newscorepcontent.textContent=`You ${score[0]} -  ${score[1]} Computer`;
     scorecontainer.replaceWith(newscorepcontent);
     document.querySelector('body').style.height="100vh";
@@ -165,4 +193,5 @@ function show_score(score){
 
 
 let score=[0,0]
-window.addEventListener('click', play);
+let btn=document.querySelector('button');
+btn.addEventListener('click', play);
