@@ -35,7 +35,17 @@ function play(e) {
     let choicep=e.target.id;
     // let choicep=document.querySelector()
     console.log(choicep);
-    playRound(computerPlay(),choicep);
+    result=playRound(computerPlay(),choicep);
+    console.log(result);
+    console.log(result);
+    // gamescore=score(result);
+    
+       
+    console.log(score);
+    let newscore=update_score(score,result);
+    score=newscore;
+    console.log(score);
+    show_score(score);
 }
 
 function show_result(text){
@@ -134,15 +144,25 @@ function game_finished(score){
     // restart game
 }
 
-function score(){    
-    final_score=[0,0];
-    result=playRound();
-    final_score=[final_score[0]+result[0],final_score[1]+result[1]]
+function update_score(oldscore,newscore){
+    // old score and new score is an array 
+    resultscore=[oldscore[0]+newscore[0],oldscore[1]+newscore[1]];
+    return resultscore;
+}
+
+function show_score(score){
     
-    if (final_score[0]==5 || final_score[1]==5 ){
-        game_finished(final_score)
-    }
+
+    let scorecontainer=document.querySelector('.totalscore');
+    let newscorepcontent=document.createElement('p');
+    newscorepcontent.classList.add('totalscore');
+    oldcontent=newscorepcontent.textContent;
+    console.log(oldcontent);
+    newscorepcontent.textContent=`You ${score[0]} -  ${score[1]} Computer`;
+    scorecontainer.replaceWith(newscorepcontent);
+    document.querySelector('body').style.height="100vh";
 }
 
 
+let score=[0,0]
 window.addEventListener('click', play);
